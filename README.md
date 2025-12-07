@@ -28,14 +28,18 @@ hexagonal-architecture-adapters-and-ports
 │  └─ src/main/java/com/demo/sd/sn/customer/config/...
 │
 ├─ infrastructure/
-│  ├─ build.gradle
+│  │ 
 │  ├─ adapter-db/
 │  │  ├─ build.gradle
 │  │  └─ src/main/java/com/demo/sd/sn/customer/infrastructure/db/...
 │  │
-│  └─ adapter-client/
+│  ├─ adapter-client/
+│  │  ├─ build.gradle
+│  │  └─ src/main/java/com/demo/sd/sn/customer/infrastructure/client/...
+│  │
+│  └─ adapter-rest/
 │     ├─ build.gradle
-│     └─ src/main/java/com/demo/sd/sn/customer/infrastructure/client/...
+│     └─ src/main/java/com/demo/sd/sn/customer/infrastructure/rest/...
 │
 └─ boot/
    ├─ build.gradle
