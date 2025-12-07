@@ -1,0 +1,11 @@
+plugins {
+    id 'org.springframework.boot' version '3.5.8'
+}
+
+dependencies {
+    implementation project(':config')
+    //implementation project(':rest')
+
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+}

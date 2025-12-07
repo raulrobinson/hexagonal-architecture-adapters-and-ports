@@ -1,0 +1,26 @@
+#spring:
+#
+#  # --- [DATASOURCE] ---
+#  datasource:
+#    url: jdbc:oracle:thin:@//localhost:1521/FREEPDB1
+#    username: DIGITARCLI
+#    password: app123
+#    driver-class-name: oracle.jdbc.OracleDriver
+#
+#  # --- [JPA] ---
+#  sql:
+#    init:
+#      mode: never
+#  jpa:
+#    hibernate:
+#      ddl-auto: validate
+#    properties:
+#      hibernate:
+#        format_sql: true
+#    show-sql: true
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
