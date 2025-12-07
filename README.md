@@ -106,7 +106,7 @@ http://localhost:8080/webjars/swagger-ui/index.html
     ```text
     curl --location 'http://localhost:8080/jsonplaceholder/posts' \
         --header 'accept: application/json' \
-        --header 'Source-Bank: 1' \
+        --header 'Correlation-Id: 1' \
         --header 'Application-Id: 1'
     ```
     
