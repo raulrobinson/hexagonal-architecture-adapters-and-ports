@@ -7,7 +7,7 @@ Este servicio está diseñado siguiendo la arquitectura hexagonal (también cono
 - ***application*** → depende de domain.
 - ***infrastructure:*** → dependen de application y domain.
 - ***config*** → depende de todos (application, domain, infrastructure:*).
-- ***boot*** → depende config.
+- ***boot*** → depende de config.
 
 ```text
 hexagonal-architecture-adapters-and-ports
