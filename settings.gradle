@@ -1,13 +1,19 @@
 rootProject.name = 'hexagonal-architecture-adapters-and-ports'
 
+// [Main Modules]
 include 'domain'
 include 'application'
 include 'config'
 include 'boot'
+
+// [Infrastructure Modules]
 include 'client'
 include 'db'
 include 'rest'
+include 'parameter'
 
+// [Directories]
 project(':client').projectDir = file('infrastructure/adapter-client')
 project(':db').projectDir = file('infrastructure/adapter-db')
 project(':rest').projectDir = file('infrastructure/adapter-rest')
+project(':parameter').projectDir = file('infrastructure/adapter-parameter')
