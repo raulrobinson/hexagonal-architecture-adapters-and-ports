@@ -10,12 +10,16 @@ import org.springframework.context.annotation.Configuration;
 public class UserConfig {
 
     @Bean
-    public UserUseCase useCase(CreateUserService createUserService) {
+    public UserUseCase useCase(
+            CreateUserService createUserService
+    ) {
         return new UserUseCase(createUserService);
     }
 
     @Bean
-    public CreateUserService createUserService(OutUserRepositoryPort repository) {
+    public CreateUserService createUserService(
+            OutUserRepositoryPort repository
+    ) {
         return new CreateUserService(repository);
     }
 }

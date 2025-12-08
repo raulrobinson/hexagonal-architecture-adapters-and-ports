@@ -41,10 +41,15 @@ public class OpenApiConfig {
                                 .name("Integration Team Demo")
                                 .email("devops@demo.com")))
                 .servers(List.of(
-                        new Server().url("http://localhost:8080").description("Local Environment"),
-                        new Server().url("https://labs.demo.com").description("Development Environment")
+                        new Server()
+                                .url("http://localhost:8080")
+                                .description("Local Environment"),
+                        new Server()
+                                .url("https://labs.demo.com")
+                                .description("Development Environment")
                 ))
-                .addSecurityItem(new SecurityRequirement().addList("bearerAuth"))
+                .addSecurityItem(new SecurityRequirement()
+                        .addList("bearerAuth"))
                 .components(new Components()
                         .addSecuritySchemes("bearerAuth", new SecurityScheme()
                                 .name("Authorization")
@@ -61,7 +66,9 @@ public class OpenApiConfig {
                 );
     }
 
-    private Parameter requiredHeader(String name, String example, String description) {
+    private Parameter requiredHeader(String name,
+                                     String example,
+                                     String description) {
         return new Parameter()
                 .in(ParameterIn.HEADER.toString())
                 .required(true)
@@ -70,7 +77,9 @@ public class OpenApiConfig {
                 .description(description);
     }
 
-    private Parameter optionalHeader(String name, String example, String description) {
+    private Parameter optionalHeader(String name,
+                                     String example,
+                                     String description) {
         return new Parameter()
                 .in(ParameterIn.HEADER.toString())
                 .required(false)
