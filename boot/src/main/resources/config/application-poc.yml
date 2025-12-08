@@ -1,0 +1,5 @@
+aws:
+  region: us-east-1
+  profile: XXXXXX-XXXXXX-XXXXXX-XXXXXX-XXXXXX
+  lambda:
+    function-name: lambda_fn_name
