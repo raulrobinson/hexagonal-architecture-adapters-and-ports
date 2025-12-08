@@ -2,18 +2,19 @@ package com.demo.sd.sn.domain.service;
 
 import com.demo.sd.sn.domain.model.Post;
 import com.demo.sd.sn.domain.port.out.OutJSONPlaceHolderClientPort;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
 public class JSONPlaceHolderService {
 
-    private final OutJSONPlaceHolderClientPort client;
+    private final OutJSONPlaceHolderClientPort jsonPlaceHolderClient;
 
-    public JSONPlaceHolderService(OutJSONPlaceHolderClientPort client) {
-        this.client = client;
+    public JSONPlaceHolderService(OutJSONPlaceHolderClientPort jsonPlaceHolderClient) {
+        this.jsonPlaceHolderClient = jsonPlaceHolderClient;
     }
 
-    public List<Post> getPosts() {
-        return client.getPosts();
+    public Mono<List<Post>> getPosts() {
+        return jsonPlaceHolderClient.getPosts();
     }
 }

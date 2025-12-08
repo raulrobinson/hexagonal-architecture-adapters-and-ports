@@ -1,7 +1,5 @@
 package com.demo.sd.sn.config;
 
-import com.demo.sd.sn.domain.port.CustomerRepository;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration

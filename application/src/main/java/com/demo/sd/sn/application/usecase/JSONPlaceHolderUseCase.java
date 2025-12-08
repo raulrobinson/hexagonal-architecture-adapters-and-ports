@@ -3,6 +3,7 @@ package com.demo.sd.sn.application.usecase;
 import com.demo.sd.sn.domain.port.in.InJSONPlaceHolderPort;
 import com.demo.sd.sn.domain.model.Post;
 import com.demo.sd.sn.domain.service.JSONPlaceHolderService;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class JSONPlaceHolderUseCase implements InJSONPlaceHolderPort {
     }
 
     @Override
-    public List<Post> getPosts() {
+    public Mono<List<Post>> getPosts() {
         return jsonPlaceHolderService.getPosts();
     }
 }

@@ -98,7 +98,7 @@ Una vez que la aplicación esté en funcionamiento, puedes acceder a la document
 http://localhost:8080/webjars/swagger-ui/index.html
 ```
 
-![img.png](img.png)
+![swagger.jpg](docs/swagger.jpg)
 
 ### Endpoints
 - **Obtener los Posts**: `GET /jsonplaceholder/posts`

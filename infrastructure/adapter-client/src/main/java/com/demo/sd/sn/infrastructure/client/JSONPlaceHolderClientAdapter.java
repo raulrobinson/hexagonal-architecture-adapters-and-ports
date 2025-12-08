@@ -5,6 +5,7 @@ import com.demo.sd.sn.domain.port.out.OutJSONPlaceHolderClientPort;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -19,12 +20,12 @@ public class JSONPlaceHolderClientAdapter implements OutJSONPlaceHolderClientPor
     }
 
     @Override
-    public List<Post> getPosts() {
+    public Mono<List<Post>> getPosts() {
         return webClient.get()
                 .uri("/posts")
                 .retrieve()
                 .bodyToFlux(Post.class)
                 .collectList()
-                .block(); // permitido SOLO en adapter
+                .doOnNext(posts -> log.info("Posts size: {}", posts.size()));
     }
 }

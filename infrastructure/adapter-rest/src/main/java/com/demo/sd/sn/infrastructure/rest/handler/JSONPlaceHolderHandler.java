@@ -14,8 +14,7 @@ public class JSONPlaceHolderHandler {
     private final InJSONPlaceHolderPort jsonPlaceHolder;
 
     public Mono<ServerResponse> getPosts(ServerRequest request) {
-        return Mono.fromSupplier(jsonPlaceHolder::getPosts)
-                .subscribeOn(reactor.core.scheduler.Schedulers.boundedElastic())
+        return jsonPlaceHolder.getPosts()
                 .flatMap(posts -> ServerResponse.ok().bodyValue(posts));
     }
 }
