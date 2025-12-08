@@ -1,4 +1,4 @@
-package com.demo.sd.sn.config;
+package com.demo.sd.sn.config.client;
 
 import com.demo.sd.sn.domain.port.out.OutJSONPlaceHolderClientPort;
 import com.demo.sd.sn.infrastructure.client.JSONPlaceHolderClientAdapter;

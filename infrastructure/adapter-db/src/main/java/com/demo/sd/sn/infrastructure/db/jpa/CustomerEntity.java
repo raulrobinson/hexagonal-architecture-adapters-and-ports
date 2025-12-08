@@ -1,4 +1,4 @@
-package com.demo.servicedomain.servicename.infrastructure.db.jpa;
+package com.demo.sd.sn.infrastructure.db.jpa;
 
 //import jakarta.persistence.Entity;
 //import jakarta.persistence.Id;

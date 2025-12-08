@@ -1,4 +1,4 @@
-package com.demo.sd.sn.config;
+package com.demo.sd.sn.config.openapi;
 
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.models.Components;
