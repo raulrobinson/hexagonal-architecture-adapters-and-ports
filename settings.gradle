@@ -6,8 +6,10 @@ include 'config'
 include 'boot'
 include 'client'
 include 'db'
+include 'lambda'
 include 'rest'
 
 project(':client').projectDir = file('infrastructure/adapter-client')
 project(':db').projectDir = file('infrastructure/adapter-db')
+project(':lambda').projectDir = file('infrastructure/adapter-lambda')
 project(':rest').projectDir = file('infrastructure/adapter-rest')

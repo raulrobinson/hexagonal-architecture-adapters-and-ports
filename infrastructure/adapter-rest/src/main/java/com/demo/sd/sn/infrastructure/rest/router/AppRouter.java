@@ -2,6 +2,7 @@ package com.demo.sd.sn.infrastructure.rest.router;
 
 import com.demo.sd.sn.infrastructure.rest.dto.CreateUserRequest;
 import com.demo.sd.sn.infrastructure.rest.handler.JSONPlaceHolderHandler;
+import com.demo.sd.sn.infrastructure.rest.handler.LambdaHandler;
 import com.demo.sd.sn.infrastructure.rest.handler.UserHandler;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springdoc.core.annotations.RouterOperation;
@@ -55,11 +56,13 @@ public class AppRouter {
     })
     public RouterFunction<ServerResponse> routes(
             JSONPlaceHolderHandler jsonPlaceHolderHandler,
-            UserHandler userHandler
+            UserHandler userHandler,
+            LambdaHandler lambdaHandler
     ) {
         return RouterFunctions.route()
                 .GET("/jsonplaceholder/posts", jsonPlaceHolderHandler::getPosts)
                 .POST("/users", userHandler::create)
+                .POST("/lambda/invoke", lambdaHandler::getInvokeLambda)
                 .build();
     }
 }
