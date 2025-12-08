@@ -22,7 +22,7 @@ public class ParameterStoreAdapter implements OutParameterPort {
 
         GetParameterRequest request = GetParameterRequest.builder()
                 .name(parameterName)
-                .withDecryption(true)   // ✅ IMPORTANTE para SecureString
+                .withDecryption(true)   // !!! IMPORTANTE para SecureString !!!
                 .build();
 
         return Mono.fromFuture(ssmAsyncClient.getParameter(request))
@@ -40,12 +40,7 @@ public class ParameterStoreAdapter implements OutParameterPort {
 
     @SuppressWarnings("unchecked")
     private <T> Mono<T> convert(String value, Class<T> clazz) {
-
-        if (clazz.equals(String.class)) {
-            return Mono.just((T) value);
-        }
-
+        if (clazz.equals(String.class)) return Mono.just((T) value);
         return Mono.fromCallable(() -> mapper.readValue(value, clazz));
     }
-
 }
