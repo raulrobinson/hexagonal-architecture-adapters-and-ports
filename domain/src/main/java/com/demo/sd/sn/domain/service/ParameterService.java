@@ -11,7 +11,7 @@ public class ParameterService {
         this.parameterPort = parameterPort;
     }
 
-    public <T> Mono<T> get(String name, Class<T> clazz) {
-        return parameterPort.getParameter(name, clazz);
+    public <T> T getParameter(String parameterName, Class<T> clazz) {
+        return parameterPort.getParameter(parameterName, clazz);
     }
 }

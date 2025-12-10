@@ -11,7 +11,7 @@ public class GetParameterUseCase {
         this.parameterService = parameterService;
     }
 
-    public <T> Mono<T> execute(String name, Class<T> clazz) {
-        return parameterService.get(name, clazz);
+    public <T> T getParameter(String parameterName, Class<T> clazz) {
+        return parameterService.getParameter(parameterName, clazz);
     }
 }

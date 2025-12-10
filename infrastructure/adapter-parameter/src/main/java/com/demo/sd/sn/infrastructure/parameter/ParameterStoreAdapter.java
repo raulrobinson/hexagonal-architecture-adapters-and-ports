@@ -2,6 +2,7 @@ package com.demo.sd.sn.infrastructure.parameter;
 
 import com.demo.sd.sn.domain.port.out.OutParameterPort;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.benmanes.caffeine.cache.Cache;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
