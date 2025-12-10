@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @Component
 @AllArgsConstructor
-public class SecretsProvider extends BaseCachedProvider implements OutSecretsPort {
+public class SecretsProvider implements OutSecretsPort {
 
     private final SecretsManagerClient client;
     private final Cache<String, String> cache;
