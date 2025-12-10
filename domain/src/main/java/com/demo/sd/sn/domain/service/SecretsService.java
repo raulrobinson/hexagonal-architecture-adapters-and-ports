@@ -1,17 +1,17 @@
 package com.demo.sd.sn.domain.service;
 
-import com.demo.sd.sn.domain.port.out.OutSecretsManagerPort;
+import com.demo.sd.sn.domain.port.out.OutSecretsPort;
 import reactor.core.publisher.Mono;
 
 public class SecretsService {
 
-    private final OutSecretsManagerPort outSecretsManagerPort;
+    private final OutSecretsPort outSecretsPort;
 
-    public SecretsService(OutSecretsManagerPort outSecretsManagerPort) {
-        this.outSecretsManagerPort = outSecretsManagerPort;
+    public SecretsService(OutSecretsPort outSecretsPort) {
+        this.outSecretsPort = outSecretsPort;
     }
 
-    public <T> Mono<T> get(String secretName, Class<T> clazz) {
-        return outSecretsManagerPort.getSecrets(secretName, clazz);
+    public String get(String secretName) {
+        return outSecretsPort.getSecret(secretName);
     }
 }

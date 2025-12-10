@@ -62,7 +62,7 @@ public class AppRouter {
         return RouterFunctions.route()
                 .GET("/jsonplaceholder/posts", jsonPlaceHolderHandler::getPosts)
                 .POST("/users", userHandler::create)
-                .GET("/secrets", secretsHandler::getSecrets)
+                .GET("/secrets", secretsHandler::getSecret)
                 .build();
     }
 }

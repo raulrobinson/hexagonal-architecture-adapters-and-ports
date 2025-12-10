@@ -11,16 +11,22 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class SecretsHandler {
 
-    private final GetSecretsUseCase getSecretsUseCase;
+    private final GetSecretsUseCase secretsProvider;
 
-    public Mono<ServerResponse> getSecrets(ServerRequest request) {
+    public Mono<ServerResponse> getSecret(ServerRequest request) {
         String name = request.queryParam("name")
-                .orElseThrow(() -> new IllegalArgumentException("Missing secret name"));
+                .orElseThrow(() -> new IllegalArgumentException("name required"));
 
-        return ServerResponse.ok()
-                .body(
-                        getSecretsUseCase.execute(name, String.class),
-                        String.class
-                );
+        return Mono.fromSupplier(() -> secretsProvider.execute(name))
+                .flatMap(secret -> ServerResponse.ok().bodyValue(secret));
     }
 }
+
+/*
+
+Regla CLAVE de WebFlux
+
+TODO lo que sale de un handler WebFlux debe ser Publisher
+(Mono o Flux)
+
+ */

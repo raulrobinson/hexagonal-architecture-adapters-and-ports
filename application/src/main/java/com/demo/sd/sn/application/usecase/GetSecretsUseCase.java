@@ -11,7 +11,7 @@ public class GetSecretsUseCase {
         this.secretsService = secretsService;
     }
 
-    public <T> Mono<T> execute(String secretName, Class<T> clazz) {
-        return secretsService.get(secretName, clazz);
+    public String execute(String secretName) {
+        return secretsService.get(secretName);
     }
 }

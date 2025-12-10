@@ -10,6 +10,7 @@ import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.regions.providers.DefaultAwsRegionProviderChain;
 import software.amazon.awssdk.services.secretsmanager.SecretsManagerAsyncClient;
+import software.amazon.awssdk.services.secretsmanager.SecretsManagerClient;
 
 import java.net.URI;
 
@@ -21,11 +22,11 @@ public class AwsConfig {
      */
     @Bean
     @Profile("local")
-    public SecretsManagerAsyncClient SecretsManagerAsyncClientLocal(
+    public SecretsManagerClient SecretsManagerClientLocal(
             @Value("${aws.region}") String region,
             @Value("${aws.endpoint}") String endpoint
     ) {
-        return SecretsManagerAsyncClient.builder()
+        return SecretsManagerClient.builder()
                 .region(Region.of(region))
                 .endpointOverride(URI.create(endpoint))
                 .build();
@@ -36,11 +37,11 @@ public class AwsConfig {
      */
     @Bean
     @Profile("poc")
-    public SecretsManagerAsyncClient SecretsManagerAsyncClientPoc(
+    public SecretsManagerClient SecretsManagerClientPoc(
             @Value("${aws.region}") String region,
             @Value("${aws.profile}") String awsProfile
     ) {
-        return SecretsManagerAsyncClient.builder()
+        return SecretsManagerClient.builder()
                 .region(Region.of(region))
                 .credentialsProvider(ProfileCredentialsProvider.create(awsProfile))
                 .build();
@@ -51,8 +52,8 @@ public class AwsConfig {
      */
     @Bean
     @Profile("!local & !poc")
-    public SecretsManagerAsyncClient SecretsManagerAsyncClient() {
-        return SecretsManagerAsyncClient.builder()
+    public SecretsManagerClient SecretsManagerClient() {
+        return SecretsManagerClient.builder()
                 .region(DefaultAwsRegionProviderChain.builder().build().getRegion())
                 .credentialsProvider(DefaultCredentialsProvider.create())
                 .build();

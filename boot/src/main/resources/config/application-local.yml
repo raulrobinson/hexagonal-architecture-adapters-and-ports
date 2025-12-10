@@ -3,7 +3,7 @@
 #  # --- [DATASOURCE] ---
 #  datasource:
 #    url: jdbc:oracle:thin:@//localhost:1521/FREEPDB1
-#    username: DIGITARCLI
+#    username: USERCLI
 #    password: app123
 #    driver-class-name: oracle.jdbc.OracleDriver
 #
